@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                App-Module-Lister
-version:             0.10_01
+version:             0.11
 abstract:            List all of the installed modules with just Perl5.004 code
 license:             perl
 generated_by:        ExtUtils::MakeMaker version 6.36
