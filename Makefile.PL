@@ -3,11 +3,11 @@ use ExtUtils::MakeMaker;
 
 require 5.006;
 
-eval "use Test::Manifest 1.14";
+eval "use Test::Manifest 1.21";
 
 WriteMakefile(
 	'NAME'	       => 'App::Module::Lister',
-	'ABSTRACT'     => 'List all of the installed modules with just Perl5.004 code',
+	'ABSTRACT'     => 'List all of the installed modules with just Perl 5.6 code',
 	'VERSION_FROM' => 'lib/Lister.pm',
 	'LICENSE'      => 'perl',
 	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',

@@ -5,7 +5,7 @@ use strict;
 use subs qw();
 use vars qw($VERSION);
 
-$VERSION = '0.11';
+$VERSION = '0.12';
 
 =head1 NAME
 
@@ -270,13 +270,9 @@ The C<CPAN.pm> module
 
 =head1 SOURCE AVAILABILITY
 
-This source is part of a SourceForge project which always has the
-latest sources in CVS, as well as all of the previous releases.
+This module is on Github:
 
-	http://sourceforge.net/projects/brian-d-foy/
-
-If, for some reason, I disappear from the world, one of the other
-members of the project can shepherd this module appropriately.
+	git://github.com/briandfoy/app-module-lister.git
 
 =head1 AUTHOR
 
@@ -288,7 +284,7 @@ Some bits stolen from C<mldistwatch> in the PAUSE code, by Andreas KE<ouml>nig.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2007, brian d foy, All Rights Reserved.
+Copyright (c) 2007-2008, brian d foy, All Rights Reserved.
 
 You may redistribute this under the same terms as Perl itself.
 
