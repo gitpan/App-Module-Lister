@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                App-Module-Lister
-version:             0.12
+version:             0.13
 abstract:            List all of the installed modules with just Perl 5.6 code
 license:             perl
 author:              
