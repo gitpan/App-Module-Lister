@@ -6,9 +6,9 @@ whatever CGI script name that you like and upload it to your no-shell
 web hoster. Run the CGI script and see all of the installed modules
 with their versions.
 
-This module is also on Github
+This module is also in SVN on SourceForge
 
-	git://github.com/briandfoy/app-module-lister.git
+	http://sourceforge.net/projects/brian-d-foy/
 
 
 Enjoy, 

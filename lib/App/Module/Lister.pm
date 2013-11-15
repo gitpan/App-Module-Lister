@@ -5,11 +5,13 @@ use strict;
 use subs qw();
 use vars qw($VERSION);
 
-$VERSION = '0.13';
+$VERSION = '0.14';
+
+=encoding utf8
 
 =head1 NAME
 
-App::Module::ListerI - List the Perl modules in @INC
+App::Module::Lister - List the Perl modules in @INC
 
 =head1 SYNOPSIS
 
@@ -71,21 +73,18 @@ use File::Spec;
 
 run(\*STDOUT) unless caller;
 
-sub run
-	{
+sub run {
 	my $fh = shift || \*STDOUT;
 	
 	my( $wanted, $reporter, $clear ) = generator();
 
 	print $fh "This is Perl $]\n";
 	
-	foreach my $inc ( @INC )
-		{		
+	foreach my $inc ( @INC ) {		
 		find( { wanted => $wanted }, $inc );
 		
 		my $count = 0;
-		foreach my $file ( $reporter->() )
-			{
+		foreach my $file ( $reporter->() ) {
 			my $version = parse_version_safely( $file );
 			
 			my $module_name = path_to_module( $inc, $file );
@@ -123,8 +122,7 @@ See their use in C<run>.
 	
 =cut
 
-sub generator
-	{			
+sub generator {			
 	my @files = ();
 	
 	sub { push @files, 
@@ -143,8 +141,7 @@ string C<'undef'>.
 	
 =cut
 
-sub parse_version_safely # stolen from PAUSE's mldistwatch, but refactored
-	{
+sub parse_version_safely { # stolen from PAUSE's mldistwatch, but refactored
 	my( $file ) = @_;
 	
 	local $/ = "\n";
@@ -154,8 +151,7 @@ sub parse_version_safely # stolen from PAUSE's mldistwatch, but refactored
 
 	my $in_pod = 0;
 	my $version;
-	while( <FILE> ) 
-		{
+	while( <FILE> ) {
 		chomp;
 		$in_pod = /^=(?!cut)/ ? 1 : /^=cut/ ? 0 : $in_pod;
 		next if $in_pod || /^\s*#/;
@@ -188,8 +184,7 @@ The C<VAR> is the variable identifier.
 	
 =cut
 
-sub eval_version
-	{
+sub eval_version {
 	my( $line, $sigil, $var ) = @_;
 	
 	my $eval = qq{ 
@@ -217,8 +212,7 @@ specified in C<INC_DIR>.
 	
 =cut
 
-sub path_to_module
-	{
+sub path_to_module {
 	my( $inc, $path ) = @_;
 	
 	my $module_path = substr( $path, length $inc );
@@ -270,9 +264,13 @@ The C<CPAN.pm> module
 
 =head1 SOURCE AVAILABILITY
 
-This module is on Github:
+This source is part of a SourceForge project which always has the
+latest sources in CVS, as well as all of the previous releases.
 
-	git://github.com/briandfoy/app-module-lister.git
+	http://sourceforge.net/projects/brian-d-foy/
+
+If, for some reason, I disappear from the world, one of the other
+members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 
@@ -280,11 +278,11 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 The idea and some of the testing came from Adam Wohld.
 
-Some bits stolen from C<mldistwatch> in the PAUSE code, by Andreas KE<ouml>nig.
+Some bits stolen from C<mldistwatch> in the PAUSE code, by Andreas König.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2007-2008, brian d foy, All Rights Reserved.
+Copyright (c) 2007-2013, brian d foy, All Rights Reserved.
 
 You may redistribute this under the same terms as Perl itself.
 
